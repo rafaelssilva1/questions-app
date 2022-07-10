@@ -3,10 +3,13 @@ import "./detail-screen.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import ShareScreen from "./share-screen";
+
 export default function DetailScreen() {
     const { id } = useParams();
     const [question, setQuestion] = useState({});
     const [choices, setChoices] = useState([]);
+    const [share, setShare] = useState(false);
 
     useEffect(() => {
         fetch(`https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/questions/${id}`)
@@ -16,16 +19,20 @@ export default function DetailScreen() {
                 setChoices(data.choices);
             })
     },[id]);
-
+    
+    const shareScreen = () => {
+        setShare(true);
+    };
+    
     const putQuestion = () => {
         window.location=`/questions/${id}`;
-    }
+    };
 
     return (
-        <div className="container">
+        <div className="container question">
             <div className="question__action">
                 <a href="/questions">Go back</a>
-                <a href="/">Share</a>
+                <span onClick={shareScreen}>Share</span>
             </div>
             <div className="question__title">
                 <h1>{question.question}</h1>
@@ -38,6 +45,7 @@ export default function DetailScreen() {
                     </div>
                 ))}
             </div>
+            {share && <ShareScreen closeShare={setShare} />}
         </div>
     );
 }
