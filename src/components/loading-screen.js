@@ -17,7 +17,7 @@ export default function LoadingScreen() {
                 setDisplay(true);
             }
         })
-    },[]);
+    },[navigate]);
 
     const loadingRetry = () => {
         window.location.reload(false);
