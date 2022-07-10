@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 
 
 import "./questions-list-screen.css";
-import Placeholder from "./placeholder";
+import DetailScreen from "./detail-screen";
 
 let offset = 0;
 
@@ -53,7 +53,7 @@ export default function QuestionsListScreen() {
             </div>
             <ul className="questions__list">
                 {questions.map(el => (
-                    <Link element={<Placeholder />} to={`/questions/${el.id}`} key={el.id}>
+                    <Link element={<DetailScreen />} to={`/questions/${el.id}`} key={el.id}>
                         <li className="questions__item">
                         <div className="questions__img">
                             <img src={el.thumb_url} alt={el.question}></img>
