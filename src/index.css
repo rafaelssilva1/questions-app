@@ -20,8 +20,6 @@ html {
 #root {
   display: flex;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
 }
 
 html, body{
