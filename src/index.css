@@ -1,15 +1,17 @@
 /*Fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
 /*Variables*/
 :root {
-  --main-font: 'Lato', Helvetica, sans-serif;
+  --main-font: 'Poppins', sans-serif;
   --font-size-title: 1.2em;
   --font-size-question: 1em;
   --button-radius: 2em;
   --shadow: 1px 1px 2px #cccccc;
   --border-radius: 0.5em;
-  --color-green: #00A800;
+  --color-blue: #1A63F9;
+  --color-white: #fff;
+  --color-black: #000;
 }
 
 /*Global Styles*/
