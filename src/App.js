@@ -22,7 +22,7 @@ function App() {
          window.removeEventListener("online", updateNetwork);
       };
    });
-  
+
 
   return (
     <>
