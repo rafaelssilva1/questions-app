@@ -62,8 +62,31 @@ button {
   margin: 2em auto;
 }
 
-/*Styles*/
-.container {
-  width: 40%;
-  margin: 2em auto;
+.default__title {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color-black);
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  color: var(--color-white);
+}
+
+.default__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-size: 1.25em;
+  font-weight: 300;
+  background-color: var(--color-white);
+  border: none;
+  border-radius: 8em;
+  -webkit-border-radius: 8em;
+  -moz-border-radius: 8em;
+  -ms-border-radius: 8em;
+  -o-border-radius: 8em;
+  padding: 0.5em 1.5em;
+}
+
+.default__button > .material-symbols-outlined {
+  color: var(--color-blue);
 }

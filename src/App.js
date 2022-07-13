@@ -10,19 +10,20 @@ import ConnectivityScreen from "./components/connectivity-screen";
 
 function App() {
   const [connectivity, setConnectivity] = useState(window.navigator.onLine);
-
-   const updateNetwork = () => {
+  
+  const updateNetwork = () => {
     setConnectivity(window.navigator.onLine);
-   };
-   useEffect(() => {
-      window.addEventListener("offline", updateNetwork);
-      window.addEventListener("online", updateNetwork);
-      return () => {
-         window.removeEventListener("offline", updateNetwork);
-         window.removeEventListener("online", updateNetwork);
-      };
-   });
-
+  };
+  
+  useEffect(() => {
+    window.addEventListener("offline", updateNetwork);
+    window.addEventListener("online", updateNetwork);
+    return () => {
+        window.removeEventListener("offline", updateNetwork);
+        window.removeEventListener("online", updateNetwork);
+    };
+  });
+  
 
   return (
     <>
