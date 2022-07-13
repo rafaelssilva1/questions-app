@@ -27,8 +27,8 @@ export default function LoadingScreen() {
         <div className="loading">
             <div className="loading__circle" id={!display ? "" : "hide"}></div>
             <div className="loading__retry" id={!display ? "hide" : ""}>
-                <h1 className="loading__title">oops, something went wrong!</h1>
-                <button className="loading__button" onClick={loadingRetry}>
+                <h1 className="default__title loading__title">oops, something went wrong!</h1>
+                <button className="default__button" onClick={loadingRetry}>
                     <span class="material-symbols-outlined">replay</span>
                     try again
                 </button>
