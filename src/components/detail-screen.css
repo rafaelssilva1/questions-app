@@ -47,6 +47,9 @@
 }
 
 .question__shareDiv {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
     color: var(--color-white);
     background-color: var(--color-dark-blue);
     border-radius: 2em;

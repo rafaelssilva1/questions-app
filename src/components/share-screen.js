@@ -1,6 +1,6 @@
 import "./share-screen.css";
  
-export default function ShareScreen({closeShare}) {
+export default function ShareScreen({closeShare, styles}) {
 
     const closeShareBtn = () => {
         closeShare(false);
@@ -29,11 +29,11 @@ export default function ShareScreen({closeShare}) {
     };
 
     return (
-        <div className="share">
+        <div className="share" id={styles ? "inverted" : ""}>
             <h2 className="default__title">Share this question!</h2>
             <form className="share__form" onSubmit={shareQuestion}>
                 <input type="email" name="share__email" id="share__email" placeholder="Destination email..."></input>
-                <input type="submit" value="Share!" id="share__submit"></input>
+                <input type="submit" value="Share!" id={styles ? "invertedBtn" : "share__submit"}></input>
             </form>
             <div>
                 <span className="question__close material-symbols-outlined" onClick={closeShareBtn}>close</span>

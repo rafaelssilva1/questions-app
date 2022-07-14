@@ -20,7 +20,7 @@ export default function QuestionsListScreen() {
             .then(response => response.json())
             .then(data => setQuestions(data))
 
-        if(term == "") {
+        if(term === "") {
             filterForm.focus();
         }
         if(term) {
@@ -50,16 +50,17 @@ export default function QuestionsListScreen() {
             <div className="container">
                 <div className="questions__header">
                     <h1 className="default__title questions__title">questions</h1>
-                    <form method="GET" className="questions__form">
+                    <div className="question__shareDiv" onClick={shareScreen}>
+                        <span className="material-symbols-outlined">
+                            share
+                        </span>
+                        <span className="question__share">share</span>
+                    </div>
+                    <form className="questions__form" method="GET" action={`/questions?filter=`}>
                         <input className="questions__input" type="text" name="filter" id="filter" placeholder="Find a question here..."></input>
                     </form>
                 </div>
-                <div className="question__shareDiv" onClick={shareScreen}>
-                    <span className="material-symbols-outlined">
-                        share
-                    </span>
-                    <span className="question__share">share</span>
-                </div>
+                
                 <ul className="questions__list">
                     {questions.map(el => (
                         <Link element={<DetailScreen />} to={`/questions/${el.id}`} key={el.id}>
@@ -80,8 +81,8 @@ export default function QuestionsListScreen() {
                 <div className="questions__loadmorediv">
                     <button className="questions__loadmore" onClick={loadMore}>load more</button>
                 </div>
-            </div>~
-            {share && <ShareScreen closeShare={setShare} />}
+            </div>
+            {share && <ShareScreen closeShare={setShare} styles={"shareStyleInverted"} />}
         </div>
     )
 
