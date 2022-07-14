@@ -7,34 +7,49 @@
     text-align: center;
     width: 40%;
     height: 40%;
-    background-color: #f7f7f7;
+    background-color: var(--color-blue);
     z-index: 100;
-    border-radius: var(-o-border-radius);
-    -webkit-border-radius: var(-o-border-radius);
-    -moz-border-radius: var(-o-border-radius);
-    -ms-border-radius: var(-o-border-radius);
-    -o-border-radius: var(-o-border-radius);
+    border-radius: var(--border-radius);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    -ms-border-radius: var(--border-radius);
+    -o-border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 .share__title {
 
 }
 
-.share__email {
+#share__email {
+    border-radius: 2em;
+    padding: 0.5em 2em;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: none;
+}
+
+#share__url {
 
 }
 
-.share__url {
-
+#share__submit {
+    border-radius: 2em;
+    padding: 0.5em 2em;
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    border: none;
+    margin-left: -2em;
 }
 
 .question__close {
     position: absolute;
     cursor: pointer;
-    right: 10px;
-    top: 10px;
-    color: darkred;
-    font-size: 1.2em;
+    right: 1em;
+    top: 1em;
+    color: var(--color-white);
+    font-size: 2em;
+    font-weight: 300;
 }
 
 .question__close:hover {
