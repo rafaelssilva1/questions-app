@@ -5,6 +5,79 @@
     align-items: center;
     width: 100%;
     height: 100vh;
+    background-color: var(--color-blue);
+}
+
+.loading__circle {
+    position: relative;
+    width: 2em;
+    height: 2em;
+    background-color: var(--color-white);
+    animation-delay: .5s;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: loadingAnimation 1s infinite linear alternate;
+    -webkit-animation: loadingAnimation 1s infinite linear alternate;
+}
+  
+.loading__circle::before, .loading__circle::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+  
+.loading__circle::before {
+    left: -4em;
+    width: 2em;
+    height: 2em;
+    background-color: var(--color-white);
+    animation-delay: 0s;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: loadingAnimation 1s infinite linear alternate;
+    -webkit-animation: loadingAnimation 1s infinite linear alternate;
+}
+  
+.loading__circle::after {
+    left: 4em;
+    width: 2em;
+    height: 2em;
+    background-color: var(--color-white);
+    animation-delay: 0s;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: loadingAnimation 1s infinite linear alternate;
+    -webkit-animation: loadingAnimation 1s infinite linear alternate;
+}
+
+.loading__retry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes loadingAnimation {
+    0% {
+      opacity: 100%;
+    }
+    50%,
+    100% {
+      opacity: 00%;
+    }
+}
+
+.loading__title {
+    text-align: center;
 }
 
 #hide {
