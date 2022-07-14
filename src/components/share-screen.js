@@ -16,11 +16,11 @@ export default function ShareScreen({closeShare}) {
 
     return (
         <div className="share">
-            <h2 className="share__title">Share this question!</h2>
+            <h2 className="default__title">Share this question!</h2>
             <form className="share__form" onSubmit={shareQuestion} action={`/share?destination_email=${destinationEmail}&content_url=${url}`}>
                 <input type="email" name="destination_email" id="share__email" placeholder="Destination email..."></input>
                 <input type="hidden" name="content_url" id="share__url" value={url}></input>
-                <input type="submit" value="Share!"></input>
+                <input type="submit" value="Share!" id="share__submit"></input>
             </form>
             <div>
                 <span className="question__close material-symbols-outlined" onClick={closeShareBtn}>close</span>
