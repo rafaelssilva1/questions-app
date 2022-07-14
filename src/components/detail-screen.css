@@ -90,6 +90,8 @@
     font-size: 1.1em;
 }
 
+}
+
 .question__choice:hover {
     transition: all 0.5s ease;
     background: linear-gradient(90deg, #1a63f9 0%, #134ec7 50%, #021641 100%);
@@ -106,7 +108,7 @@
 }
 
 .question__choiceDiv-voted:hover {
-    background: inherit;
+    background: var(--color-grey);
 }
 
 .question__choice-voted {
@@ -126,8 +128,4 @@
 #vote {
     background: linear-gradient(90deg, #1a63f9 0%, #134ec7 50%, #021641 100%);
     color: white;
-}
-
-#test {
-
 }

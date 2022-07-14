@@ -1,12 +1,13 @@
 import "./detail-screen.css";
 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import ShareScreen from "./share-screen";
 
 export default function DetailScreen() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [question, setQuestion] = useState({});
     const [choices, setChoices] = useState([]);
     const [share, setShare] = useState(false);
@@ -33,7 +34,6 @@ export default function DetailScreen() {
             e.target.setAttribute("id", "vote");
             e.target.parentElement.setAttribute("id", "voted");
         }
-
         const choice = e.target.firstChild.innerText;
         const vote = parseInt(e.target.dataset.vote) + 1;
 
@@ -71,12 +71,12 @@ export default function DetailScreen() {
                 ))}
             </div>
             <div className="question__action">
-                <a href="/questions">
+                <div onClick={() => navigate(-1)}>
                     <span className="material-symbols-outlined">
                         arrow_back
                     </span>
                     <span className="question__back">back</span>
-                </a>
+                </div>
                 <div className="question__shareDiv" onClick={shareScreen}>
                     <span className="material-symbols-outlined">
                         share
