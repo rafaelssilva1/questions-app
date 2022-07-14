@@ -1,25 +1,35 @@
 import "./share-screen.css";
-import { useEffect } from "react";
  
 export default function ShareScreen({closeShare}) {
-    const url = window.location.href;
-    let destinationEmail = "";
 
     const closeShareBtn = () => {
         closeShare(false);
     };
 
     const shareQuestion = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
+
+        const urlString = window.location.href;
+        const emailString = document.getElementById("share__email").value;
+
+        const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: emailString, url: urlString})
+        };
+
+        fetch(`https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/share?destination_email=${emailString}&content_url=${urlString}`, requestOptions)
+            .then(response => response.json())
+            .then(data => data);
+
         
     };
 
     return (
         <div className="share">
             <h2 className="default__title">Share this question!</h2>
-            <form className="share__form" onSubmit={shareQuestion} action={`/share?destination_email=${destinationEmail}&content_url=${url}`}>
-                <input type="email" name="destination_email" id="share__email" placeholder="Destination email..."></input>
-                <input type="hidden" name="content_url" id="share__url" value={url}></input>
+            <form className="share__form" onSubmit={shareQuestion}>
+                <input type="email" name="share__email" id="share__email" placeholder="Destination email..."></input>
                 <input type="submit" value="Share!" id="share__submit"></input>
             </form>
             <div>
