@@ -47,6 +47,7 @@
 }
 
 .question__shareDiv {
+    cursor: pointer;
     display: flex;
     align-items: center;
     margin-bottom: 0.5em;

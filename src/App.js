@@ -27,12 +27,14 @@ function App() {
 
   return (
     <>
-      {!connectivity ? <ConnectivityScreen /> : ""}
-      <Routes>
+      {!connectivity 
+      ? <ConnectivityScreen />
+      : <Routes>
         <Route index path="/" element={<LoadingScreen />} />
         <Route path="/questions" element={<QuestionsListScreen />} />
         <Route path="/questions/:id" element={<DetailScreen />} />
       </Routes>
+    }
     </>
   );
 }

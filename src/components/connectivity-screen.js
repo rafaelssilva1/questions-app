@@ -17,5 +17,6 @@ export default function ConnectivityScreen() {
                 <span class="material-symbols-outlined">replay</span>
                 try again
             </button>
-        </div>);
-}
+        </div>
+    );
+} 
