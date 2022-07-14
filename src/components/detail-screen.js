@@ -37,8 +37,6 @@ export default function DetailScreen() {
         const choice = e.target.firstChild.innerText;
         const vote = parseInt(e.target.dataset.vote) + 1;
 
-        console.log(choice);
-
         const requestOptions = {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -47,7 +45,7 @@ export default function DetailScreen() {
 
         fetch(`https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/questions/${id}`, requestOptions)
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => data);
     };
 
     return (

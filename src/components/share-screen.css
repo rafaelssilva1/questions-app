@@ -45,6 +45,7 @@
     color: var(--color-white);
     border: none;
     margin-left: -2em;
+    cursor: pointer;
 }
 
 .question__close {

@@ -12,17 +12,20 @@ export default function ShareScreen({closeShare}) {
         const urlString = window.location.href;
         const emailString = document.getElementById("share__email").value;
 
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: emailString, url: urlString})
-        };
-
-        fetch(`https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/share?destination_email=${emailString}&content_url=${urlString}`, requestOptions)
-            .then(response => response.json())
-            .then(data => data);
-
-        
+        if(emailString) {
+            const requestOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: emailString, url: urlString})
+            };
+    
+            fetch(`https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/share?destination_email=${emailString}&content_url=${urlString}`, requestOptions)
+                .then(response => response.json())
+                .then(data => data);
+                
+            document.querySelector(".share__form").reset();
+            closeShare(false);
+        }
     };
 
     return (
