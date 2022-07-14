@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+// components
+import LoadingScreen from "./components/loading-screen";
+import QuestionsListScreen from "./components/questions-list-screen";
+import DetailScreen from "./components/detail-screen";
+import ConnectivityScreen from "./components/connectivity-screen";
 
 function App() {
+  const [connectivity, setConnectivity] = useState(window.navigator.onLine);
+  
+  const updateNetwork = () => {
+    setConnectivity(window.navigator.onLine);
+  };
+  
+  useEffect(() => {
+    window.addEventListener("offline", updateNetwork);
+    window.addEventListener("online", updateNetwork);
+    return () => {
+        window.removeEventListener("offline", updateNetwork);
+        window.removeEventListener("online", updateNetwork);
+    };
+  });
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {!connectivity 
+      ? <ConnectivityScreen />
+      : <Routes>
+        <Route index path="/" element={<LoadingScreen />} />
+        <Route path="/questions" element={<QuestionsListScreen />} />
+        <Route path="/questions/:id" element={<DetailScreen />} />
+      </Routes>
+    }
+    </>
   );
 }
 
