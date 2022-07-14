@@ -68,6 +68,10 @@
     margin-bottom: 1em;
 }
 
+.question__choice > p {
+    pointer-events: none;
+}
+
 .question__choice {
     display: flex;
     align-items: center;
