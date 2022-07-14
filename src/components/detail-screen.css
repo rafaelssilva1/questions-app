@@ -127,3 +127,15 @@
     background: linear-gradient(90deg, #1a63f9 0%, #134ec7 50%, #021641 100%);
     color: white;
 }
+
+@media screen and (max-width: 768px) {
+    .question {
+        width: 95%;
+    }
+    .question__choices {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1em;
+        margin-bottom: 1em;
+    }
+}

@@ -92,3 +92,9 @@ button {
 .default__button > .material-symbols-outlined {
   color: var(--color-blue);
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
