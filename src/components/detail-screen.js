@@ -34,6 +34,20 @@ export default function DetailScreen() {
             e.target.setAttribute("id", "vote");
             e.target.parentElement.setAttribute("id", "voted");
         }
+        const choice = e.target.firstChild.innerText;
+        const vote = parseInt(e.target.dataset.vote) + 1;
+
+        console.log(choice);
+
+        const requestOptions = {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ choices: [{ choice: choice, votes: vote }]})
+        };
+
+        fetch(`https://private-bbbe9-blissrecruitmentapi.apiary-mock.com/questions/${id}`, requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data));
     };
 
     return (
@@ -50,7 +64,7 @@ export default function DetailScreen() {
                     </div>
                 )) :
                     choices.map(el => (
-                    <div className="question__choice question__choiceDiv-voted" key={el.choice} onClick={putQuestion} data-vote={el.votes}>
+                    <div className="question__choice question__choiceDiv-voted" key={el.choice} data-vote={el.votes}>
                         <div className="question__choice-voted">{el.choice}</div>
                         <div className="question__vote-voted">{el.votes} votes</div>
                     </div>
