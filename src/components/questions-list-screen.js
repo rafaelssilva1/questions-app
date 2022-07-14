@@ -1,18 +1,17 @@
 import { useState , useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
-
 import "./questions-list-screen.css";
 import DetailScreen from "./detail-screen";
+import ShareScreen from "./share-screen";
 
 let offset = 0;
 
 export default function QuestionsListScreen() {
-    let [searchParams] = useSearchParams()
+    let [searchParams] = useSearchParams();
     const term = searchParams.get("filter");
-
+    const [share, setShare] = useState(false);
     const [questions, setQuestions] = useState([]);
-
 
     useEffect(() => {
         const filterForm = document.querySelector("#filter");
@@ -21,7 +20,7 @@ export default function QuestionsListScreen() {
             .then(response => response.json())
             .then(data => setQuestions(data))
 
-        if(!(term)) {
+        if(term === "") {
             filterForm.focus();
         }
         if(term) {
@@ -41,15 +40,27 @@ export default function QuestionsListScreen() {
             })
     };
 
+    const shareScreen = () => {
+        console.log(share);
+        setShare(true);
+    };
+
     return (
         <div className="questions">
             <div className="container">
                 <div className="questions__header">
                     <h1 className="default__title questions__title">questions</h1>
-                    <form method="GET" className="questions__form">
+                    <div className="question__shareDiv" onClick={shareScreen}>
+                        <span className="material-symbols-outlined">
+                            share
+                        </span>
+                        <span className="question__share">share</span>
+                    </div>
+                    <form className="questions__form" method="GET" action={`/questions?filter=`}>
                         <input className="questions__input" type="text" name="filter" id="filter" placeholder="Find a question here..."></input>
                     </form>
                 </div>
+                
                 <ul className="questions__list">
                     {questions.map(el => (
                         <Link element={<DetailScreen />} to={`/questions/${el.id}`} key={el.id}>
@@ -71,6 +82,7 @@ export default function QuestionsListScreen() {
                     <button className="questions__loadmore" onClick={loadMore}>load more</button>
                 </div>
             </div>
+            {share && <ShareScreen closeShare={setShare} styles={"shareStyleInverted"} />}
         </div>
     )
 

@@ -1,5 +1,8 @@
 .share {
-    position: fixed;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,6 +18,10 @@
     -ms-border-radius: var(--border-radius);
     -o-border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+}
+
+#inverted {
+    background-color: var(--color-dark-blue);
 }
 
 .share__title {
@@ -45,6 +52,17 @@
     color: var(--color-white);
     border: none;
     margin-left: -2em;
+    cursor: pointer;
+}
+
+#invertedBtn {
+    border-radius: 2em;
+    padding: 0.5em 2em;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border: none;
+    margin-left: -2em;
+    cursor: pointer;
 }
 
 .question__close {
@@ -59,4 +77,17 @@
 
 .question__close:hover {
     animation: pulseAnimation 2s infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .share {
+        width: 95%;
+        height: 60%;
+    }
+    .question__choices {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1em;
+        margin-bottom: 1em;
+    }
 }
