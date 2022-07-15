@@ -26,6 +26,7 @@ export default function ShareScreen({closeShare, styles}) {
                 .then(data => data);
                 
             document.querySelector(".share__form").reset();
+            
             setShared(true);
 
             setTimeout(() => {
