@@ -11,6 +11,7 @@ export default function QuestionsListScreen() {
     let [searchParams] = useSearchParams();
     const term = searchParams.get("filter");
     const [share, setShare] = useState(false);
+    const [shareDisplay, setShareDisplay] = useState(false);
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
@@ -22,9 +23,11 @@ export default function QuestionsListScreen() {
 
         if(term === "") {
             filterForm.focus();
+            setShareDisplay(true);
         }
         if(term) {
             filterForm.value = term;
+            setShareDisplay(true);
         }
     },[term]);
 
@@ -50,12 +53,15 @@ export default function QuestionsListScreen() {
             <div className="container">
                 <div className="questions__header">
                     <h1 className="default__title questions__title">questions</h1>
-                    <div className="question__shareDiv" onClick={shareScreen}>
-                        <span className="material-symbols-outlined">
-                            share
-                        </span>
-                        <span className="question__share">share</span>
-                    </div>
+                    {
+                        shareDisplay &&
+                        <div className="question__shareDiv" onClick={shareScreen}>
+                            <span className="material-symbols-outlined">
+                                share
+                            </span>
+                            <span className="question__share">share</span>
+                        </div>
+                    }
                     <form className="questions__form" method="GET" action={`/questions?filter=`}>
                         <input className="questions__input" type="text" name="filter" id="filter" placeholder="Find a question here..."></input>
                     </form>
