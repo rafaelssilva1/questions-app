@@ -50,7 +50,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-bottom: 0.5em;
     color: var(--color-white);
     background-color: var(--color-dark-blue);
     border-radius: 2em;
@@ -134,7 +133,7 @@
 
 @media screen and (max-width: 768px) {
     .question {
-        width: 95%;
+        width: 85%;
     }
     .question__choices {
         display: grid;
@@ -142,4 +141,7 @@
         gap: 1em;
         margin-bottom: 1em;
     }
+    .question__shareDiv {
+        margin-bottom: 0.5em;
+    } 
 }
