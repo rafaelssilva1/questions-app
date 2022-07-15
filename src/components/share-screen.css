@@ -79,6 +79,12 @@
     animation: pulseAnimation 2s infinite;
 }
 
+.share__success {
+    color: var(--color-white);
+    font-size: 1em;
+    margin: 1em;
+}
+
 @media screen and (max-width: 768px) {
     .share {
         width: 95%;
